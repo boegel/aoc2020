@@ -11,17 +11,38 @@ input_file = sys.argv[1]
 with open(input_file, 'r') as fp:
     input_txt = fp.read()
 
-Slope = namedtuple('Slope', ['right', 'down'])
-slope = Slope(3, 1)
+lines = input_txt.splitlines()
 
-col, row = 0, 0
-trees = 0
 
-for line in input_txt.splitlines()[1:]:
-    col = (col + slope.right) % len(line)
-    print(line)
-    print(' ' * col + '^')
-    if line[col] == '#':
-        trees += 1
+def check_slope(right, down, verbose=False):
+    col = 0
+    row = down
+    trees = 0
+    while row < len(lines):
+        line = lines[row]
 
-print(trees)
+        col = (col + right) % len(line)
+        if verbose:
+            print(line)
+            print(' ' * col + '^')
+
+        if line[col] == '#':
+            trees += 1
+
+        row += down
+
+    return trees
+
+
+# first half: 3 right, 1 down
+print("first half (3 right, 1 down): %s" % check_slope(3, 1))
+
+# second half
+print("second half")
+product = 1
+for (right, down) in [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]:
+    trees = check_slope(right, down)
+    print("%d right, %d down: %s" % (right, down, trees))
+    product *= trees
+
+print("product: %d" % product)
