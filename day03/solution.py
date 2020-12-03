@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import sys
 
-from collections import namedtuple
 
 if len(sys.argv) != 2:
     sys.stderr.write("ERROR: Usage: %s <input>\n" % sys.argv[0])
