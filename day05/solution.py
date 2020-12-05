@@ -11,6 +11,7 @@ input_file = sys.argv[1]
 with open(input_file, 'r') as fp:
     input_txt = fp.read()
 
+all_seat_ids = []
 max_seat_id = 0
 for line in input_txt.splitlines():
     print(line)
@@ -46,8 +47,17 @@ for line in input_txt.splitlines():
     col = col_range[0]
 
     seat_id = row * 8 + col
+    all_seat_ids.append(seat_id)
     print(row, col, ' => ', seat_id)
     if seat_id > max_seat_id:
         max_seat_id = seat_id
 
-print(max_seat_id)
+print("(first half) max seat id: %s" % max_seat_id)
+
+all_seat_ids.sort()
+idx = 0
+while all_seat_ids[idx] + 1 == all_seat_ids[idx + 1]:
+    idx += 1
+
+print(all_seat_ids)
+print("(second half): %d" % (all_seat_ids[idx] + 1))
