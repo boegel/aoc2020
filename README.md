@@ -12,3 +12,6 @@ Estimated time spent on the puzzles:
 * [day 04](https://adventofcode.com/2020/day/4): ~25min
 * [day 05](https://adventofcode.com/2020/day/5): ~20min
 * [day 06](https://adventofcode.com/2020/day/6): ~15min
+* [day 07](https://adventofcode.com/2020/day/7): ~20min
+* [day 08](https://adventofcode.com/2020/day/8): ~20min
+* [day 09](https://adventofcode.com/2020/day/9): ~17min
